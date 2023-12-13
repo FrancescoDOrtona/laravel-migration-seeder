@@ -19,7 +19,7 @@ class TrainFactory extends Factory
             'stazione_arrivo' => $this->faker->city,
             'orario_partenza' => $this->faker->time,
             'orario_arrivo' => $this->faker->time,
-            'codice_treno' => $this->faker->word,
+            'codice_treno' => $this->faker->bothify('???###'),
             'numero_carrozze' => $this->faker->numberBetween(1, 10),
             'in_orario' => $this->faker->boolean,
             'cancellato' => $this->faker->boolean,            

@@ -1,30 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Trains</title>
+    <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    @vite('resources/js/app.js')
 </head>
+
 <body>
-    <section>
         <header>
             <div class="container text-center py-4">
                 <h1>Train Schedule</h1>
             </div>
         </header>
-        <div class="container">           
-            <ul>
-                @foreach($trains as $train)
-                    <li>
-                        <p>{{ $train->codice_treno }}</p>  
-                        <p>{{ $train->stazione_partenza }} to {{ $train->stazione_arrivo }} </p>
-                        <p>Departure: {{ $train->orario_partenza }}</p>  
-                        <p>Arrival: {{ $train->orario_arrivo }}</p>
-                    </li>
-                @endforeach
-            </ul>
-        </div>
-    </section>
+
+        <section>
+            <div class="container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                          <th scope="col">Company</th>
+                          <th scope="col">Train Code</th>
+                          <th scope="col">Route</th>
+                          <th scope="col">Departure</th>
+                          <th scope="col">Arrival</th>
+                          <th scope="col">Wagons</th>
+                          <th scope="col">Canceled</th>
+                          <th scope="col">Delay</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @foreach($trains as $train)
+                    <tr>
+                        <td>{{ $train->azienda }}</td>  
+                        <td>{{ $train->codice_treno }}</td>  
+                        <td>{{ $train->stazione_partenza }} <span class="fw-bold">to</span> {{$train->stazione_arrivo }}</td>
+                        <td>{{ $train->orario_partenza }}</td>  
+                        <td>{{ $train->orario_arrivo }}</td>
+                        <td>{{ $train->numero_carrozze }}</td>
+                        <td>
+                            {{ ($train->cancellato) ? 'No' : 'yes' }}
+                        </td>
+                        <td>
+                            {{ ($train->in_orario) ? 'Yes' : 'No' }}
+                        </td>
+                    </tr>
+                        @endforeach
+
+                      </tbody>
+                </table>
+            </div>            
+        </section>
 </body>
 </html>
