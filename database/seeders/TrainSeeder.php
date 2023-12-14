@@ -13,6 +13,6 @@ class TrainSeeder extends Seeder
      */
     public function run()
     {
-        Train::factory(14)->create();
+        Train::factory(500)->create();
     }
 }

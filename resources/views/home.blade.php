@@ -34,7 +34,7 @@
                         @foreach($trains as $train)
                     <tr>
                         <td>{{ $train->azienda }}</td>  
-                        <td>{{ $train->codice_treno }}</td>  
+                        <td class="text-uppercase">{{ $train->codice_treno }}</td>  
                         <td>{{ $train->stazione_partenza }} <span class="fw-bold">to</span> {{$train->stazione_arrivo }}</td>
                         <td>{{ $train->orario_partenza }}</td>  
                         <td>{{ $train->orario_arrivo }}</td>
