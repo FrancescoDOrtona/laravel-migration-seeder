@@ -13,12 +13,18 @@ class TrainFactory extends Factory
     protected $model = Train::class;
     public function definition()
     {
+
+        $dataPartenza = $this->faker->dateTimeBetween('now', '+1 week');
+        $intervall = $this->faker->numberBetween(1, 3);
+        $dataArrivo = clone $dataPartenza;
+        $dataArrivo->add(new \DateInterval("P{$intervall}D"));
+
         return [
             'azienda' => $this->faker->company,
             'stazione_partenza' => $this->faker->city,
             'stazione_arrivo' => $this->faker->city,
-            'orario_partenza' => $this->faker->time,
-            'orario_arrivo' => $this->faker->time,
+            'data_partenza' => $dataPartenza,
+            'data_arrivo' => $dataArrivo,
             'codice_treno' => $this->faker->unique()->bothify('???###'),
             'numero_carrozze' => $this->faker->numberBetween(1, 10),
             'in_orario' => $this->faker->boolean,

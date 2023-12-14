@@ -23,8 +23,8 @@
                           <th scope="col">Company</th>
                           <th scope="col">Train Code</th>
                           <th scope="col">Route</th>
-                          <th scope="col">Departure</th>
-                          <th scope="col">Arrival</th>
+                          <th scope="col">Departure date</th>
+                          <th scope="col">Arrival date</th>
                           <th scope="col">Wagons</th>
                           <th scope="col">Canceled</th>
                           <th scope="col">Delay</th>
@@ -36,8 +36,8 @@
                         <td>{{ $train->azienda }}</td>  
                         <td class="text-uppercase">{{ $train->codice_treno }}</td>  
                         <td>{{ $train->stazione_partenza }} <span class="fw-bold">to</span> {{$train->stazione_arrivo }}</td>
-                        <td>{{ $train->orario_partenza }}</td>  
-                        <td>{{ $train->orario_arrivo }}</td>
+                        <td>{{ $train->data_partenza }}</td>  
+                        <td>{{ $train->data_arrivo }}</td>
                         <td>{{ $train->numero_carrozze }}</td>
                         <td>
                             {{ ($train->cancellato) ? 'No' : 'yes' }}

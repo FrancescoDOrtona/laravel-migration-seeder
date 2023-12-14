@@ -11,9 +11,9 @@ class TrainController extends Controller
     public function index()
     {
         $today = Carbon::now()->toDateString();
-        $trains = Train::whereDate('orario_partenza', $today)
-            ->where('in_orario', true)
-            ->orderBy('orario_partenza')
+        $trains = Train::whereDate('data_partenza', $today)
+            // ->where('in_orario', true)
+            ->orderBy('data_partenza')
             ->get();
 
         return view('home', compact('trains'));
