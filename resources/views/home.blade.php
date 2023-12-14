@@ -10,13 +10,13 @@
 
 <body>
         <header>
-            <div class="container text-center py-4">
+            <div class="container">
                 <h1>Train Schedule</h1>
             </div>
         </header>
 
         <section>
-            <div class="container-fluid px-5">
+            <div class="container">
                 <table class="table">
                     <thead>
                         <tr>
@@ -36,8 +36,8 @@
                         @foreach($trains as $train)
                     <tr>
                         <td>{{ $train->azienda }}</td>  
-                        <td class="text-uppercase">{{ $train->codice_treno }}</td>  
-                        <td>{{ $train->stazione_partenza }} <span class="fw-bold">to</span> {{$train->stazione_arrivo }}</td>
+                        <td class="train-code">{{ $train->codice_treno }}</td>  
+                        <td>{{ $train->stazione_partenza }} <span class="text-bold">to</span> {{$train->stazione_arrivo }}</td>
                         <td>{{ $train->data_partenza }}</td>  
                         <td>{{ $train->data_arrivo }}</td>
                         <td>{{ $train->orario_partenza }}</td>
