@@ -58,6 +58,10 @@ th, td {
     font-weight: bold;
 }
 
+.bg-red{
+    background-color: rgba(255, 0, 0, 0.3);
+}
+
 th:last-child, td:last-child {
     border-right: none;
 }

@@ -34,7 +34,7 @@
                       </thead>
                       <tbody>
                         @foreach($trains as $train)
-                    <tr>
+                    <tr class="{{ $train->cancellato ? '' : 'bg-red' }}">
                         <td>{{ $train->azienda }}</td>  
                         <td class="train-code">{{ $train->codice_treno }}</td>  
                         <td>{{ $train->stazione_partenza }} <span class="text-bold">to</span> {{$train->stazione_arrivo }}</td>
