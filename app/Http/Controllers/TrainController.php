@@ -14,6 +14,7 @@ class TrainController extends Controller
         $trains = Train::whereDate('data_partenza', $today)
             // ->where('in_orario', true)
             ->orderBy('data_partenza')
+            ->orderBy('orario_partenza')
             ->get();
 
         return view('home', compact('trains'));
